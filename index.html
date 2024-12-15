@@ -32,20 +32,27 @@
             font-size: 30px;
         }
         .category {
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
         .category h3 {
             font-size: 24px;
-            margin-bottom: 10px;
             color: #555;
+            cursor: pointer;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 0;
+            border: 1px solid #ddd;
         }
         .subcategory {
+            display: none;
             margin-left: 20px;
         }
         .subcategory h4 {
             font-size: 20px;
             margin-bottom: 10px;
             color: #444;
+            cursor: pointer;
         }
         .links {
             display: flex;
@@ -92,59 +99,43 @@
 
     <!-- Content Section -->
     <section>
-        <h2>麻袋的储物间</h2>
+        <h2>麻袋的资源收藏</h2>
 
-        <!-- 学习网站 -->
+        <!-- 学习资源 -->
         <div class="category">
-            <h3>学习网站</h3>
-            
-            <!-- 学唱歌子分类 -->
-            <div class="subcategory">
-                <h4>学唱歌</h4>
-                <div class="links">
-                    <div class="link-item">
-                        <h4>英文歌曲教学</h4>
-                        <p>英文歌曲手把手教学</p>
-                        <a href="https://space.bilibili.com/35409066?spm_id_from=333.1387.favlist.content.click">访问网站</a>
-                    </div>
-                    <div class="link-item">
-                        <h4>JavaScript 教程</h4>
-                        <p>适合新手学习的 JavaScript 入门教程。</p>
-                        <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide" target="_blank">访问网站</a>
+            <h3 onclick="toggleSubcategory('learn')">学习资源</h3>
+            <div class="subcategory" id="learn">
+                <!-- 编程语言子分类 -->
+                <div class="subcategory">
+                    <h4 onclick="toggleSubcategory('language')">编程语言</h4>
+                    <div class="links" id="language">
+                        <div class="link-item">
+                            <h4>Python 官方文档</h4>
+                            <p>详细介绍 Python 编程语言的官方文档，适合从初学者到高级程序员。</p>
+                            <a href="https://docs.python.org/3/" target="_blank">访问网站</a>
+                        </div>
+                        <div class="link-item">
+                            <h4>JavaScript 教程</h4>
+                            <p>适合新手学习的 JavaScript 入门教程。</p>
+                            <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide" target="_blank">访问网站</a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- 编程语言子分类 -->
-            <div class="subcategory">
-                <h4>编程语言</h4>
-                <div class="links">
-                    <div class="link-item">
-                        <h4>Python 官方文档</h4>
-                        <p>详细介绍 Python 编程语言的官方文档，适合从初学者到高级程序员。</p>
-                        <a href="https://docs.python.org/3/" target="_blank">访问网站</a>
-                    </div>
-                    <div class="link-item">
-                        <h4>JavaScript 教程</h4>
-                        <p>适合新手学习的 JavaScript 入门教程。</p>
-                        <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide" target="_blank">访问网站</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 计算机科学子分类 -->
-            <div class="subcategory">
-                <h4>计算机科学</h4>
-                <div class="links">
-                    <div class="link-item">
-                        <h4>计算机网络</h4>
-                        <p>计算机网络的基础知识，适合学习网络通信原理。</p>
-                        <a href="https://www.cnblogs.com/royalbean/p/4176791.html" target="_blank">访问网站</a>
-                    </div>
-                    <div class="link-item">
-                        <h4>数据结构与算法</h4>
-                        <p>深入浅出地介绍常见的数据结构与算法。</p>
-                        <a href="https://leetcode.com/" target="_blank">访问网站</a>
+                <!-- 计算机科学子分类 -->
+                <div class="subcategory">
+                    <h4 onclick="toggleSubcategory('cs')">计算机科学</h4>
+                    <div class="links" id="cs">
+                        <div class="link-item">
+                            <h4>计算机网络</h4>
+                            <p>计算机网络的基础知识，适合学习网络通信原理。</p>
+                            <a href="https://www.cnblogs.com/royalbean/p/4176791.html" target="_blank">访问网站</a>
+                        </div>
+                        <div class="link-item">
+                            <h4>数据结构与算法</h4>
+                            <p>深入浅出地介绍常见的数据结构与算法。</p>
+                            <a href="https://leetcode.com/" target="_blank">访问网站</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -152,38 +143,39 @@
 
         <!-- 工具网站 -->
         <div class="category">
-            <h3>工具网站</h3>
-            
-            <!-- 开发工具子分类 -->
-            <div class="subcategory">
-                <h4>开发工具</h4>
-                <div class="links">
-                    <div class="link-item">
-                        <h4>GitHub</h4>
-                        <p>全球最大的代码托管平台，适合开源项目和团队合作。</p>
-                        <a href="https://github.com/" target="_blank">访问网站</a>
-                    </div>
-                    <div class="link-item">
-                        <h4>Visual Studio Code</h4>
-                        <p>一款非常流行的开发工具，支持各种编程语言。</p>
-                        <a href="https://code.visualstudio.com/" target="_blank">访问网站</a>
+            <h3 onclick="toggleSubcategory('tools')">工具网站</h3>
+            <div class="subcategory" id="tools">
+                <!-- 开发工具子分类 -->
+                <div class="subcategory">
+                    <h4 onclick="toggleSubcategory('dev_tools')">开发工具</h4>
+                    <div class="links" id="dev_tools">
+                        <div class="link-item">
+                            <h4>GitHub</h4>
+                            <p>全球最大的代码托管平台，适合开源项目和团队合作。</p>
+                            <a href="https://github.com/" target="_blank">访问网站</a>
+                        </div>
+                        <div class="link-item">
+                            <h4>Visual Studio Code</h4>
+                            <p>一款非常流行的开发工具，支持各种编程语言。</p>
+                            <a href="https://code.visualstudio.com/" target="_blank">访问网站</a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- 设计工具子分类 -->
-            <div class="subcategory">
-                <h4>设计工具</h4>
-                <div class="links">
-                    <div class="link-item">
-                        <h4>Figma</h4>
-                        <p>在线设计工具，适合 UI/UX 设计。</p>
-                        <a href="https://www.figma.com/" target="_blank">访问网站</a>
-                    </div>
-                    <div class="link-item">
-                        <h4>Canva</h4>
-                        <p>适合初学者使用的在线设计工具，可以创建社交媒体图像、演示文稿等。</p>
-                        <a href="https://www.canva.com/" target="_blank">访问网站</a>
+                <!-- 设计工具子分类 -->
+                <div class="subcategory">
+                    <h4 onclick="toggleSubcategory('design_tools')">设计工具</h4>
+                    <div class="links" id="design_tools">
+                        <div class="link-item">
+                            <h4>Figma</h4>
+                            <p>在线设计工具，适合 UI/UX 设计。</p>
+                            <a href="https://www.figma.com/" target="_blank">访问网站</a>
+                        </div>
+                        <div class="link-item">
+                            <h4>Canva</h4>
+                            <p>适合初学者使用的在线设计工具，可以创建社交媒体图像、演示文稿等。</p>
+                            <a href="https://www.canva.com/" target="_blank">访问网站</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -191,25 +183,40 @@
 
         <!-- 博客文章 -->
         <div class="category">
-            <h3>博客文章</h3>
-            <div class="links">
-                <div class="link-item">
-                    <h4>如何写好一篇技术博客</h4>
-                    <p>这篇文章教你如何写出高质量的技术博客，分享经验与心得。</p>
-                    <a href="https://example.com/article1" target="_blank">访问文章</a>
-                </div>
-                <div class="link-item">
-                    <h4>前端开发的最佳实践</h4>
-                    <p>关于前端开发的一些技巧和常见问题的解决方案。</p>
-                    <a href="https://example.com/article2" target="_blank">访问文章</a>
+            <h3 onclick="toggleSubcategory('blogs')">博客文章</h3>
+            <div class="subcategory" id="blogs">
+                <div class="links">
+                    <div class="link-item">
+                        <h4>如何写好一篇技术博客</h4>
+                        <p>这篇文章教你如何写出高质量的技术博客，分享经验与心得。</p>
+                        <a href="https://example.com/article1" target="_blank">访问文章</a>
+                    </div>
+                    <div class="link-item">
+                        <h4>前端开发的最佳实践</h4>
+                        <p>关于前端开发的一些技巧和常见问题的解决方案。</p>
+                        <a href="https://example.com/article2" target="_blank">访问文章</a>
+                    </div>
                 </div>
             </div>
         </div>
+
     </section>
 
     <!-- Footer -->
     <footer>
         <p>联系我：your-email@example.com | 社交媒体链接</p>
     </footer>
+
+    <script>
+        // Toggle subcategory visibility
+        function toggleSubcategory(id) {
+            var subcategory = document.getElementById(id);
+            if (subcategory.style.display === "none" || subcategory.style.display === "") {
+                subcategory.style.display = "block";
+            } else {
+                subcategory.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
